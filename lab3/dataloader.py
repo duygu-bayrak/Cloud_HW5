@@ -79,11 +79,11 @@ def femnist_dataloaders(root="./femnist", batch_size=64, clients=10):
     #############################################################################
     
     # example dataloader
-    example_dataset = MNISTDataset(feature=torch.tensor(train_data['user_data']['f4015_05']['x']).view(-1, 28, 28),    
-                                   target = torch.tensor(train_data['user_data']['f4015_05']['y']), 
-                                   transform=data_transform)
+    # example_dataset = MNISTDataset(feature=torch.tensor(train_data['user_data']['f4015_05']['x']).view(-1, 28, 28),    
+    #                                target = torch.tensor(train_data['user_data']['f4015_05']['y']), 
+    #                                transform=data_transform)
 
-    example_dataloader = DataLoader(example_dataset, batch_size=32, shuffle=True)
+    # example_dataloader = DataLoader(example_dataset, batch_size=32, shuffle=True)
 
     #############################################################################
     train_data_all_x = []
@@ -118,7 +118,7 @@ def femnist_dataloaders(root="./femnist", batch_size=64, clients=10):
 
         testset = MNISTDataset(feature=x, target = y, transform=data_transform)
         testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False)
-        trainloaders.append(testloader)
+        testloaders.append(testloader)
 
     #############################################################################
     train_dataset =  MNISTDataset(feature=train_data_all_x, target =train_data_all_y, transform=data_transform)
